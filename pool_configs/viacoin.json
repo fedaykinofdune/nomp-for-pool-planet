@@ -1,0 +1,74 @@
+{
+    "enabled": true,
+    "coin": "viacoin.json",
+
+    "address": "VksxaDXF7NoDbZMGCtwVtaEU2yKXYFhJos",
+
+    "rewardRecipients": {
+        "Vch2uJUeR6N2JSn3zXLUXkkJXDGzWskKfK": 0.9,
+        "22851477d63a085dbc2398c8430af1c09e7343f6": 0.1
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "paymentInterval": 60,
+        "minimumPayment": 5,
+        "daemon": {
+            "host": "10.21.1.48",
+            "port": 5222,
+            "user": "testuser",
+            "password": "testpass"
+        }
+    },
+
+    "ports": {
+        "3128": {
+            "diff": 0.004,
+            "varDiff": {
+                "minDiff": 0.004,
+                "maxDiff": 128,
+                "targetTime": 15,
+                "retargetTime": 90,
+                "variancePercent": 30
+            }
+        },
+        "3256": {
+            "diff": 128,
+            "varDiff": {
+                "minDiff": 128,
+                "maxDiff": 512,
+                "targetTime": 15,
+                "retargetTime": 90,
+                "variancePercent": 30
+            }
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "10.21.1.48",
+            "port": 5222,
+            "user": "testuser",
+            "password": "testpass"
+        }
+    ],
+
+    "p2p": {
+        "enabled": true,
+        "host": "10.21.1.48",
+        "port": 5223,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "ltc",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    }
+
+}

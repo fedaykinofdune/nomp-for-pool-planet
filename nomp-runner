@@ -1,0 +1,22 @@
+#!/bin/bash
+cd /opt/local/nomp-for-pool-planet
+
+case "$1" in
+    start)
+	forever --pidFile /var/run/nomp.pid -a -l /opt/local/nomp-for-pool-planet/nomp.log \
+		--minUptime 5000 --spinSleepTime 2000 start /opt/local/nomp-for-pool-planet/init.js 2>&1 > /dev/null &
+        ;;
+    stop)
+	forever stop /opt/local/nomp-for-pool-planet/init.js 2>&1 > /dev/null
+        ;;
+    restart)
+	forever stop /opt/local/nomp-for-pool-planet/init.js 2>&1 > /dev/null
+	sleep 1
+	forever --pidFile /var/run/nomp.pid -a -l /opt/local/nomp-for-pool-planet/nomp.log \
+		--minUptime 5000 --spinSleepTime 2000 start /opt/local/nomp-for-pool-planet/init.js 2>&1 > /dev/null &
+        ;;
+    *)
+        echo "Usage: {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

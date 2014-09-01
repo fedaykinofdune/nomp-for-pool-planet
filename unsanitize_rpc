@@ -1,0 +1,5 @@
+#!/bin/bash
+myuser=`cat /root/username.txt`
+mypass=`cat /root/password.txt`
+sed -i "s/testuser/$myuser/g" pool_configs/*.json
+sed -i "s/testpass/$mypass/g" pool_configs/*.json
