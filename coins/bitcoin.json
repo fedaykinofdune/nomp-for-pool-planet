@@ -1,5 +1,7 @@
 {
     "name": "Bitcoin",
     "symbol": "BTC",
-    "algorithm": "sha256"
+    "algorithm": "sha256",
+    "peerMagic": "f9beb4d9",
+    "peerMagicTestnet": "dab5bffa"
 }

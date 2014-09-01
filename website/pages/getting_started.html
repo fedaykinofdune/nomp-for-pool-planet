@@ -227,7 +227,7 @@
     </div>
 
     <div id="main">
-        <a href="#" class="miningOption" id="nompAppDownload">
+        <!--<a href="#" class="miningOption" id="nompAppDownload">
             <div class="miningOptionNum">1.</div>
             <div class="miningOptionInstructions">
                 <div>Download NOMP App</div>
@@ -237,12 +237,12 @@
         <div id="orHolder">
             <div id="orLine"></div>
             <div id="orText">or</div>
-        </div>
+        </div>-->
         <a href="#" class="miningOption" id="coinGlowTrigger">
-            <div class="miningOptionNum">2.</div>
+            <!--<div class="miningOptionNum">2.</div>-->
             <div class="miningOptionInstructions">
                 <div>Select a coin for connection details</div>
-                <div>Configurations for each coin are available for advanced miners</div>
+                <!--<div>Configurations for each coin are available for advanced miners</div>-->
             </div>
         </a>
     </div>
@@ -273,7 +273,10 @@
         var htmlValues = '<div class="coinInfoData">' + info.algo + '</div>';
 
         for (var port in info.ports){
-            htmlKeys += '<div class="coinInfoData">URL <span class="coinInfoSubtle">(difficulty ' + info.ports[port].diff + ')</span>:</div>';
+            if(info.ports[port].varDiff)
+                htmlKeys += '<div class="coinInfoData">URL <span class="coinInfoSubtle">(varDiff ' + info.ports[port].varDiff.minDiff + '-' + info.ports[port].varDiff.maxDiff + ')</span>:</div>';
+            else
+                htmlKeys += '<div class="coinInfoData">URL <span class="coinInfoSubtle">(difficulty ' + info.ports[port].diff + ')</span>:</div>';
             htmlValues += '<div class="coinInfoData">stratum+tcp://' + info.host + ':' + port + '</div>';
         }
 
